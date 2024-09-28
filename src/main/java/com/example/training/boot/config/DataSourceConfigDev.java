@@ -1,4 +1,4 @@
-package io.spring.training.boot.config;
+package com.example.training.boot.config;
 
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -11,12 +11,12 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("test")
-@PropertySource("test.properties")
-public class DataSourceConfigTest {
+@Profile("dev")
+@PropertySource("dev.properties")
+public class DataSourceConfigDev {
 
     @Bean(name = "dataSource")
-    @Profile("test")
+    @Profile("dev")
     public DataSource dataSourceTest(Environment env) {    //Inject Environment Bean like any other Spring Bean
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName(env.getProperty("db.driver"));

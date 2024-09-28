@@ -1,4 +1,4 @@
-package io.spring.training.boot.config;
+package com.example.training.boot.config;
 
 import org.springframework.context.annotation.Configuration;
 

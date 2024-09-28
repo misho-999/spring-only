@@ -1,4 +1,4 @@
-package io.spring.training.boot.config.service;
+package com.example.training.boot.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

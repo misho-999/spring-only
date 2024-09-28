@@ -1,7 +1,7 @@
-package io.spring.training.boot;
+package com.example.training.boot;
 
-import io.spring.training.boot.config.ApplicationConfig;
-import io.spring.training.boot.config.WebConfig;
+import com.example.training.boot.config.ApplicationConfig;
+import com.example.training.boot.config.WebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -38,6 +38,8 @@ public class Application {
         String testPrototype2 = context.getBean("testPrototype", String.class);
         boolean testPrototype = testPrototype1 == testPrototype2;   //false
 
+
+        boolean bean = context.containsBean("testService");
 
         for (int i = 1; i <= 5; i++) {
 
