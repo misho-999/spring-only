@@ -1,5 +1,6 @@
 package com.example.training.boot.service;
 
+import com.example.training.boot.repository.JdbcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,8 @@ public class TestService {
 
     private final CarService carService;
 
+    private final JdbcRepository jdbcRepository;
+
     /*
      * @Autowired requires the dependency to be there.
      * So if we use injection like in this example, we define that the PropertyService
@@ -22,11 +25,19 @@ public class TestService {
      * !!! To avoid that you can use the required attribute!!!.
      * */
     @Autowired(required = false)
-    public TestService(PropertyService propertyService, @Qualifier("bmw") CarService carService) {
+    public TestService(PropertyService propertyService, @Qualifier("bmw") CarService carService, JdbcRepository jdbcRepository) {
         this.propertyService = propertyService;
         this.carService = carService;
+        this.jdbcRepository = jdbcRepository;
 
         carService.printName();
+
+//        jdbcRepository.getUsername(4);   //Return username
+
+        /* Provide Actual ID*/
+//        jdbcRepository.insertUser(123, "gogo@abv", "Georgi");
+        jdbcRepository.getserAsMap(2);
+        jdbcRepository.getAllUser();
     }
 
     @Autowired
