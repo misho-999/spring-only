@@ -33,8 +33,11 @@ public class TestService {
         carService.printName();
 
 //        jdbcRepository.getUsername(4);   //Return username
+
+        /* Provide Actual ID*/
 //        jdbcRepository.insertUser(123, "gogo@abv", "Georgi");
         jdbcRepository.getserAsMap(2);
+        jdbcRepository.getAllUser();
     }
 
     @Autowired

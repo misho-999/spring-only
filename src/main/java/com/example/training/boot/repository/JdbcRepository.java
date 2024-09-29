@@ -1,5 +1,6 @@
 package com.example.training.boot.repository;
 
+import com.example.training.boot.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -25,8 +26,22 @@ public class JdbcRepository {
         return jdbcTemplate.update(sql, userId, email, username);
     }
 
-    public Map<String,Object> getserAsMap(Integer userId) {
+    public Map<String, Object> getserAsMap(Integer userId) {
         String sql = "SELECT * FROM users where user_id = ?";
         return jdbcTemplate.queryForMap(sql, userId);
     }
+
+    /* Using RowMapper */
+    public List<User> getAllUser() {                        //Returns a List of Domain objects
+        return jdbcTemplate.query("SELECT * FROM users",
+                (resultSet, rowNum) -> {
+                    User user = new User();
+                    user.setId(resultSet.getInt("user_id"));
+                    user.setEmail(resultSet.getString("email"));
+                    user.setUsername(resultSet.getString("username"));
+                    return user;
+                }
+        );  //Define RowMapper using Lambda
+    }
+
 }
