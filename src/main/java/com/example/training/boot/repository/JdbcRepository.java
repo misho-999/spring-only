@@ -16,4 +16,10 @@ public class JdbcRepository {
         String sql = "SELECT username FROM users where user_id = ? ";
         return jdbcTemplate.queryForObject(sql, String.class, userId);  //No try / catch needed (unchecked exceptions)
     }
+
+    public int insertUser (Integer userId, String email, String username) {
+        return jdbcTemplate.update("INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES (?,?,?);",
+                userId,email,username);
+    }
+
 }

@@ -33,6 +33,7 @@ public class TestService {
         carService.printName();
 
         jdbcRepository.getUsername(4);   //Return username
+        jdbcRepository.insertUser(66, "gogo@abv", "Georgi");
     }
 
     @Autowired
