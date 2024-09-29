@@ -3,11 +3,11 @@ package com.example.training.boot.service;
 import com.example.training.boot.repository.JdbcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Component
+@Service
 public class TestService {
 
     private PropertyService propertyService;
