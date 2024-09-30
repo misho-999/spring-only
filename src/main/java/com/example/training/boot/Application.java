@@ -16,7 +16,7 @@ public class Application {
         /* There is multiple options for accessing Bean
 
          !!!Only one profile should be activated at a time.!!!
-         * When do test comment unused profile datasource. Uncomment only used !!!
+         * When do test comment unused (DataSourceConfig.jav) profile datasource. Uncomment only used !!!
          * Profile dev => has hardcoded values
          * Profile test => gets values from application.properties file!!!
          * */
