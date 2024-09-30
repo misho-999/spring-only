@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @Profile("dev")
-@PropertySource("dev.properties")
+@PropertySource("application-dev.properties")
 public class DataSourceConfigDev {
 
     @Bean(name = "dataSource")

@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @Profile("test")
-@PropertySource("test.properties")
+@PropertySource("application-test.properties")
 public class DataSourceConfigTest {
 
     @Bean(name = "dataSource")
