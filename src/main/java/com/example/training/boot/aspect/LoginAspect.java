@@ -15,13 +15,13 @@ public class LoginAspect {
     public final static String AFTER = "'After'";
     public static final Logger LOGGER = LoggerFactory.getLogger(LoginAspect.class);
 
-    @Before("execution(public String com.*.*.*.*.*.getAllUsers())")
+    @Before("execution(public String com.*.*.*.*.*.getAll*())")
     public void beforeMethod(JoinPoint joinPoint) {
         LOGGER.info(BEFORE + " advice implementation - {}; Executing before {}() method"
                 , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
     }
 
-    @After("execution(public String com.*.*.*.*.*.get*())")
+    @After("execution(public String com.*.*.*.*.*.getReg*())")
     public void afterMethod(JoinPoint joinPoint) {
         LOGGER.info(AFTER + " advice implementation - {}; Executing After {}() method"
                 , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
