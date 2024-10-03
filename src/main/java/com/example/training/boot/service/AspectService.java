@@ -4,10 +4,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AspectService {
-    private int cacheSize;
 
-    public void setCacheSize(int size) {
-        cacheSize = size;
+    public AspectService() {
+        printLogs();
+    }
+
+    public void printLogs(){
+        System.out.println("Print method........................");
     }
 
 }

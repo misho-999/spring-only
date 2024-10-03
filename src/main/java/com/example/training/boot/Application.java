@@ -1,6 +1,5 @@
 package com.example.training.boot;
 
-import com.example.training.boot.aspect.PropertyChangeTracker;
 import com.example.training.boot.config.ApplicationConfig;
 import com.example.training.boot.config.WebConfig;
 import org.slf4j.Logger;
@@ -8,10 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.sql.DataSource;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class Application {
 
     public static final Logger logger = LoggerFactory.getLogger(Application.class);
