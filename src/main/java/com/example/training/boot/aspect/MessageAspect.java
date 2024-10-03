@@ -1,4 +1,5 @@
 package com.example.training.boot.aspect;
+
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class MessageAspect {
-    // creating a logger
+
     public static final Logger logger = LoggerFactory.getLogger(MessageAspect.class);
 
 //    @Before("execution(void set*(*))")
@@ -18,9 +19,9 @@ public class MessageAspect {
 //    }
 
 
-    @Before("execution(* com.example.training.boot.controller.UserController.getAllUsers())")
+    //    @Before("execution(* com.example.training.boot.controller.UserController.getAllUsers())")
+    @Before("execution(String com.example.training.boot.controller.UserController.getAllUsers())")
     public void beforeMethod() {
-        System.out.println("before method");
         logger.info("...........LOGGER...................");
     }
 }
