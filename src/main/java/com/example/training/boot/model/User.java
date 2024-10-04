@@ -1,11 +1,14 @@
 package com.example.training.boot.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "users")

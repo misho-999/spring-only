@@ -26,7 +26,7 @@ public class JdbcRepository {
         return jdbcTemplate.update(sql, userId, email, username);
     }
 
-    public Map<String, Object> getserAsMap(Integer userId) {
+    public Map<String, Object> getUserAsMap(Integer userId) {
         String sql = "SELECT * FROM users where user_id = ?";
         return jdbcTemplate.queryForMap(sql, userId);
     }
