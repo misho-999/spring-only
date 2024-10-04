@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Import;
 @Import({DataSourceConfigDev.class, DataSourceConfigTest.class, WebConfig.class, AspectConfig.class})
 public class ApplicationConfig {
     /* @Import Combines multiple Configuration
-    In this example we see 3 configuration files. ApplicationConfig, DataSourceConfig, WebConfig and AspectConfig */
+    In this example we see 3 configuration files. ApplicationConfig, DataSou’rceConfig, WebConfig and AspectConfig */
 
 }

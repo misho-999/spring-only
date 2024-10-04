@@ -36,7 +36,7 @@ public class TestService {
 
         /* Provide Actual ID*/
 //        jdbcRepository.insertUser(123, "gogo@abv", "Georgi");
-        jdbcRepository.getserAsMap(2);
+        jdbcRepository.getUserAsMap(2);
         jdbcRepository.getAllUser();
     }
 

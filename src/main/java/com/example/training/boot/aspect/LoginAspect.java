@@ -29,7 +29,7 @@ public class LoginAspect {
     }
 
     //Here We pass exactly teh return type List<User>
-    @Before("execution(public * com.example.*.boot.*.UserServiceImpl.findAll*())")
+    @Before("execution(public * com.example.*.boot.*.impl.UserServiceImpl.findAll*())")
     public void afterInitUsers(JoinPoint joinPoint) {
         LOGGER.info(BEFORE + " advice implementation - {}; Executing Before {}() method"
                 , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
