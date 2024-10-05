@@ -45,6 +45,7 @@ public class JdbcRepository {
         return jdbcTemplate.query(sql, USER_ROW_MAPPER);  //Define RowMapper using Lambda
     }
 
+    /* Using RowMapper */
     public User findById(Integer id) {
         String sql = "SELECT * FROM users where user_id = ? ";
             return jdbcTemplate.queryForObject(sql,USER_ROW_MAPPER, id);
