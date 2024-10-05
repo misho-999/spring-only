@@ -11,28 +11,31 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LoginAspect {
-    public final static String BEFORE = "'@Before'";
-    public final static String AFTER = "'@After'";
     public static final Logger LOGGER = LoggerFactory.getLogger(LoginAspect.class);
+
+    public final static String BEFORE = "@Before";
+    public final static String AFTER = "@After";
+    public static final String LOG_MESSAGE = """
+                            
+            {} advice implementation;
+            Target class name: {};
+            JointPoint method signature name: {}""";
 
     @Before("execution(public * com.*.*.*.*.*.getAll*())")
     public void beforeMethod(JoinPoint joinPoint) {
-        LOGGER.info(BEFORE + " advice implementation - {}; Executing before {}() method"
-                , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE, BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
     }
 
     //Here We pass exactly teh return type wile card *
     @After("execution(public * com.*.*.*.*.*.getAll*())")
     public void afterMethod(JoinPoint joinPoint) {
-        LOGGER.info(AFTER + " advice implementation - {}; Executing After {}() method"
-                , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE , AFTER, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
     }
 
     //Here We pass exactly teh return type List<User>
     @Before("execution(public * com.example.*.boot.*.impl.UserServiceImpl.findAll*())")
     public void afterInitUsers(JoinPoint joinPoint) {
-        LOGGER.info(BEFORE + " advice implementation - {}; Executing Before {}() method"
-                , joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
     }
 }
 
