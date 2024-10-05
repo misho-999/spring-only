@@ -19,23 +19,32 @@ public class LoginAspect {
                             
             {} advice implementation;
             Target class name: {};
-            JointPoint method signature name: {}""";
+            JointPoint method signature name: {}
+            JointPoint Arguments: {}""";
 
     @Before("execution(public * com.*.*.*.*.*.getAll*())")
     public void beforeMethod(JoinPoint joinPoint) {
-        LOGGER.info(LOG_MESSAGE, BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE, BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 
     //Here We pass exactly teh return type wile card *
     @After("execution(public * com.*.*.*.*.*.getAll*())")
     public void afterMethod(JoinPoint joinPoint) {
-        LOGGER.info(LOG_MESSAGE , AFTER, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE , AFTER, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 
     //Here We pass exactly teh return type List<User>
     @Before("execution(public * com.example.*.boot.*.impl.UserServiceImpl.findAll*())")
     public void afterInitUsers(JoinPoint joinPoint) {
-        LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
+    }
+
+    //com.example.training.boot.repository
+    @After("execution(public * *.*.training.boot.*.*.*ById(*))")
+    public void afterFindUserById(JoinPoint joinPoint) {
+        // http://localhost:8080/users/33
+        // returns => JointPoint Arguments: [33]
+        LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
     }
 }
 
