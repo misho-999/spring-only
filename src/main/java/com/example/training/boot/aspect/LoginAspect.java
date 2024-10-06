@@ -59,9 +59,9 @@ public class LoginAspect {
         LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
 
         /* !!! In This case we add cars to user using cross-cutting concept.!!!  */
-        Set<Car> cars = new HashSet<>();
-        cars.add(new Car(9, "Lada", "Niva", user));
-        user.setCars(cars);
+//        Set<Car> cars = new HashSet<>();
+//        cars.add(new Car(9, "Lada", "Niva", user));
+//        user.setCars(cars);
 
         LOGGER.info("""
                
