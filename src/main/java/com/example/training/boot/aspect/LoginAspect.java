@@ -58,11 +58,9 @@ public class LoginAspect {
     public void afterReturningUserObject(JoinPoint joinPoint, User user) {
         LOGGER.info(LOG_MESSAGE , BEFORE, joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(), joinPoint.getArgs());
 
-        /* !!! In This case we add cars to user using cross-cutting concept.!!!  */
-//        Set<Car> cars = new HashSet<>();
-//        cars.add(new Car(9, "Lada", "Niva", user));
-//        user.setCars(cars);
-
+    /**
+     * Test with following request: http://localhost:8080/users/1
+     */
         LOGGER.info("""
                
                 @AfterReturning Returns the following object :{}""", user.toString());
